@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soustraction Drag & Drop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Complète la soustraction</h1>
+
+    <!-- CHIFFRES -->
+    <div class="numbers">
+
+        <div class="number" draggable="true">-</div>
+        <div class="number" draggable="true">0</div>
+        <div class="number" draggable="true">1</div>
+        <div class="number" draggable="true">2</div>
+        <div class="number" draggable="true">3</div>
+        <div class="number" draggable="true">4</div>
+        <div class="number" draggable="true">5</div>
+        <div class="number" draggable="true">6</div>
+        <div class="number" draggable="true">7</div>
+        <div class="number" draggable="true">8</div>
+        <div class="number" draggable="true">9</div>
+
+    </div>
+
+
+    <!-- SOUSTRACTION -->
+    <div class="operation">
+
+        <!-- RETENUES -->
+        <div class="line carry-line">
+
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+
+        </div>
+
+
+        <!-- PREMIER NOMBRE -->
+        <div class="line number-line" id="firstNumber">
+
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+
+        </div>
+
+
+        <!-- DEUXIEME NOMBRE -->
+        <div class="line number-line" id="secondNumber">
+
+            <span class="plus">-</span>
+
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+
+
+        </div>
+
+        <!-- RETENUES -->
+        <div class="line carry-line">
+
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+            <div class="box carry dropzone"></div>
+
+        </div>
+
+        <div class="separator"></div>
+
+
+        <!-- RESULTAT -->
+        <div class="line result-line" id="result">
+
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+            <div class="box dropzone"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOUTONS -->
+    <div class="buttons">
+
+        <button id="checkButton">
+            Vérifier
+        </button>
+
+        <button id="resetButton">
+            Réinitialiser
+        </button>
+
+    </div>
+
+
+    <p id="message"></p>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

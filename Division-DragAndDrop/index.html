@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Division Drag & Drop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <h1>Complète la division</h1>
+
+
+    <!-- =====================================================
+         CHIFFRES À GLISSER
+    ===================================================== -->
+
+    <div class="chiffres">
+
+        <div class="chiffre" draggable="true">-</div>
+        <div class="chiffre" draggable="true">0</div>
+        <div class="chiffre" draggable="true">1</div>
+        <div class="chiffre" draggable="true">2</div>
+        <div class="chiffre" draggable="true">3</div>
+        <div class="chiffre" draggable="true">4</div>
+        <div class="chiffre" draggable="true">5</div>
+        <div class="chiffre" draggable="true">6</div>
+        <div class="chiffre" draggable="true">7</div>
+        <div class="chiffre" draggable="true">8</div>
+        <div class="chiffre" draggable="true">9</div>
+
+    </div>
+
+
+    <!-- =====================================================
+         POTENCE
+    ===================================================== -->
+
+    <div class="potence-wrap">
+        <div class="potence">
+
+
+            <!-- =================================================
+                 DIVIDENDE
+            ================================================== -->
+
+            <div class="ligne dividende" id="dividende">
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             DIVISEUR
+        ================================================== -->
+
+        <div class="ligne diviseur" id="diviseur">
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             BARRE VERTICALE
+        ================================================== -->
+
+        <div class="barre-verticale"></div>
+
+
+        <!-- =================================================
+             BARRE HORIZONTALE
+        ================================================== -->
+
+        <div class="barre-horizontale"></div>
+
+
+        <!-- =================================================
+             PREMIÈRE LIGNE DE SOUSTRACTION
+        ================================================== -->
+
+        <div class="ligne produit" id="produit">
+
+            <span class="moins">-</span>
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            
+
+        </div>
+
+
+        <!-- =================================================
+             DEUXIÈME LIGNE
+        ================================================== -->
+
+        <div class="ligne etape-2" id="etape2">
+
+            <span class="moins">-</span>
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+        
+
+        </div>
+
+
+        <!-- =================================================
+             TROISIÈME LIGNE
+        ================================================== -->
+
+        <div class="ligne etape-3" id="etape3">
+
+            <span class="moins">-</span>
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+        
+
+        </div>
+
+
+        <!-- =================================================
+             RESTE
+        ================================================== -->
+
+        <div class="ligne-resultat" id="reste">
+
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+            <div class="case zone-depot"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             QUOTIENT
+        ================================================== -->
+
+            <div class="ligne quotient" id="quotient">
+
+                <div class="case zone-depot"></div>
+                <div class="case zone-depot"></div>
+                <div class="case zone-depot"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         BOUTONS
+    ===================================================== -->
+
+    <div class="boutons">
+
+        <button id="boutonVerifier">
+            Vérifier
+        </button>
+
+        <button id="boutonReinitialiser">
+            Réinitialiser
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         MESSAGE
+    ===================================================== -->
+
+    <p id="message"></p>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
