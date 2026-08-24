@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)),
+        url('img/Arithmetic_operations.svg') center/cover no-repeat fixed;
+    background-size: 60% auto;
+}
+
+main {
+    width: min(100%, 760px);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 20px;
+    padding: 40px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    margin: 0 0 40px;
+    color: #333;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.operations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.operation-button {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 8px;
+    color: white;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.operation-button:hover,
+.operation-button:focus-visible {
+    transform: scale(1.03);
+    filter: brightness(0.92);
+}
+
+.addition {
+    background: #2ecc71;
+}
+
+.subtraction {
+    background: #e74c3c;
+}
+
+.multiplication {
+    background: #3498db;
+}
+
+.division {
+    background: #f39c12;
+}
+
+@media (max-width: 520px) {
+    .operations {
+        grid-template-columns: 1fr;
+    }
+
+    .operation-button {
+        min-height: 90px;
+    }
+}
