@@ -2,18 +2,29 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Frutiger";
+    src: url("fonts/Frutiger.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Frutiger";
+    src: url("fonts/Frutiger_bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
-    font-family: Arial, sans-serif;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)),
-        url('img/Arithmetic_operations.svg') center/cover no-repeat fixed;
-    background-size: 60% auto;
+    padding: clamp(12px, 4vw, 24px);
+    font-family: "Frutiger", Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7ff 0%, #cceff1 48%, #e2f3d8 100%);
 }
 
 main {
@@ -21,12 +32,12 @@ main {
     text-align: center;
     background: rgba(255, 255, 255, 0.22);
     border-radius: 20px;
-    padding: 40px 20px;
+    padding: clamp(24px, 6vw, 40px) clamp(12px, 4vw, 20px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
-    margin: 0 0 40px;
+    margin: 0 0 clamp(24px, 6vw, 40px);
     color: #333;
     font-size: clamp(2rem, 5vw, 3rem);
 }
@@ -38,40 +49,47 @@ h1 {
 }
 
 .operation-button {
-    min-height: 120px;
+    min-height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    border: 3px solid #333;
-    border-radius: 8px;
-    color: white;
-    font-size: clamp(1.3rem, 3vw, 2rem);
-    font-weight: bold;
     text-decoration: none;
     transition: transform 0.2s, filter 0.2s;
 }
 
+.operation-symbol {
+    display: block;
+    font-size: clamp(7rem, 18vw, 15rem);
+    font-weight: bold;
+    line-height: 1;
+}
+
 .operation-button:hover,
 .operation-button:focus-visible {
-    transform: scale(1.03);
-    filter: brightness(0.92);
+    transform: scale(1.12);
+    outline: none;
 }
 
-.addition {
-    background: #2ecc71;
+.operation-button:focus-visible {
+    outline: 3px solid #333;
+    outline-offset: 8px;
 }
 
-.subtraction {
-    background: #e74c3c;
+.addition .operation-symbol {
+    color: #3498db;
 }
 
-.multiplication {
-    background: #3498db;
+.subtraction .operation-symbol {
+    color: #2ecc71;
 }
 
-.division {
-    background: #f39c12;
+.multiplication .operation-symbol {
+    color: #e74c3c;
+}
+
+.division .operation-symbol {
+    color: #f1c40f;
 }
 
 @media (max-width: 520px) {
@@ -80,6 +98,29 @@ h1 {
     }
 
     .operation-button {
-        min-height: 90px;
+        min-height: 140px;
+    }
+
+    .operation-symbol {
+        font-size: clamp(6rem, 30vw, 11.25rem);
+    }
+}
+
+@media (max-width: 360px) {
+    main {
+        border-radius: 14px;
+    }
+
+    .operations {
+        gap: 12px;
+    }
+
+    .operation-button {
+        min-height: 112px;
+        padding: 12px;
+    }
+
+    .operation-symbol {
+        font-size: clamp(5rem, 27vw, 7rem);
     }
 }

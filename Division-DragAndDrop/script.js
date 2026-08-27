@@ -1,12 +1,41 @@
 const chiffres = document.querySelectorAll(".chiffre");
 const zonesDepot = document.querySelectorAll(".zone-depot");
 const boutonVerifier = document.getElementById("boutonVerifier");
+const boutonInitialiser = document.getElementById("boutonInitialiser");
 const boutonReinitialiser = document.getElementById("boutonReinitialiser");
 const message = document.getElementById("message");
 
 let glisse = null;
 let glisseMobile = null;
 let fantome = null;
+
+function genererNombre(maxChiffres) {
+    const chiffres = Math.floor(Math.random() * maxChiffres) + 1;
+    const minimum = chiffres === 1 ? 0 : 10 ** (chiffres - 1);
+    const maximum = 10 ** chiffres - 1;
+
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum).toString();
+}
+
+function remplirNombre(id, valeur) {
+    const cases = document.querySelectorAll(`#${id} .case`);
+    const chiffresNombre = valeur.slice(-cases.length).padStart(cases.length, "");
+
+    cases.forEach((caseElement, index) => {
+        caseElement.textContent = chiffresNombre[index] || "";
+    });
+}
+
+boutonInitialiser.addEventListener("click", () => {
+    remplirNombre("dividende", genererNombre(5));
+
+    let diviseur = genererNombre(3);
+    while (diviseur === "0") {
+        diviseur = genererNombre(3);
+    }
+    remplirNombre("diviseur", diviseur);
+    effacerMessage();
+});
 
 
 /* =========================

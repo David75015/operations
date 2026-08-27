@@ -4,6 +4,8 @@ const dropzones = document.querySelectorAll(".dropzone");
 
 const checkButton = document.getElementById("checkButton");
 
+const initButton = document.getElementById("initButton");
+
 const resetButton = document.getElementById("resetButton");
 
 const message = document.getElementById("message");
@@ -12,6 +14,30 @@ const message = document.getElementById("message");
 let draggedNumber = null;
 let mobileNumber = null;
 let ghost = null;
+
+function generateNumber(maxDigits) {
+    const digits = Math.floor(Math.random() * maxDigits) + 1;
+    const minimum = digits === 1 ? 0 : 10 ** (digits - 1);
+    const maximum = 10 ** digits - 1;
+
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum).toString();
+}
+
+function fillNumber(lineId, value) {
+    const boxes = document.getElementById(lineId).querySelectorAll(".box");
+    const digits = value.slice(-boxes.length).padStart(boxes.length, "");
+
+    boxes.forEach((box, index) => {
+        box.textContent = digits[index] || "";
+    });
+}
+
+initButton.addEventListener("click", () => {
+    fillNumber("firstNumber", generateNumber(5));
+    fillNumber("secondNumber", generateNumber(5));
+    message.textContent = "";
+    message.className = "";
+});
 
 
 /* =========================
