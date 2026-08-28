@@ -20,7 +20,9 @@ function genererNombre(maxChiffres) {
 function remplirNombre(id, valeur) {
     const cases = document.querySelectorAll(`#${id} .case`);
     const chiffresNombre = valeur.slice(-cases.length);
-    const premiereCaseChiffre = cases.length - chiffresNombre.length;
+    const premiereCaseChiffre = id === "dividende"
+        ? 0
+        : cases.length - chiffresNombre.length;
 
     cases.forEach((caseElement, index) => {
         caseElement.textContent = index >= premiereCaseChiffre
@@ -30,12 +32,17 @@ function remplirNombre(id, valeur) {
 }
 
 boutonInitialiser.addEventListener("click", () => {
-    remplirNombre("dividende", genererNombre(5));
-
+    let dividende = genererNombre(5);
     let diviseur = genererNombre(3);
-    while (diviseur === "0") {
+    while (
+        diviseur === "0" ||
+        Math.floor(Number(dividende) / Number(diviseur)) > 999
+    ) {
+        dividende = genererNombre(5);
         diviseur = genererNombre(3);
     }
+
+    remplirNombre("dividende", dividende);
     remplirNombre("diviseur", diviseur);
     effacerMessage();
 });
@@ -160,6 +167,10 @@ function lireNombre(id) {
         texte += caseElement.textContent.trim();
     });
 
+    if (texte === "") {
+        return null;
+    }
+
     const negatif = texte.includes("-");
     const valeur = Number(texte.replace("-", "")) || 0;
 
@@ -178,15 +189,23 @@ boutonVerifier.addEventListener("click", () => {
     const quotient = lireNombre("quotient");
     const reste = lireNombre("reste");
 
+    if (dividende === null || diviseur === null || quotient === null || reste === null) {
+        definirMessage("Complètez toutes les cases", "incorrect");
+        return;
+    }
+
     if (diviseur === 0) {
         definirMessage("Diviseur nul !", "incorrect");
         return;
     }
 
+    const quotientAttendu = Math.floor(dividende / diviseur);
+    const resteAttendu = dividende % diviseur;
     const correct =
-        dividende === diviseur * quotient + reste &&
-        reste >= 0 &&
-        reste < Math.abs(diviseur);
+        Number.isInteger(quotient) &&
+        Number.isInteger(reste) &&
+        quotient === quotientAttendu &&
+        reste === resteAttendu;
 
     definirMessage(correct ? "Bravo" : "Incorrect", correct ? "correct" : "incorrect");
 
