@@ -19,10 +19,13 @@ function genererNombre(maxChiffres) {
 
 function remplirNombre(id, valeur) {
     const cases = document.querySelectorAll(`#${id} .case`);
-    const chiffresNombre = valeur.slice(-cases.length).padStart(cases.length, "");
+    const chiffresNombre = valeur.slice(-cases.length);
+    const premiereCaseChiffre = cases.length - chiffresNombre.length;
 
     cases.forEach((caseElement, index) => {
-        caseElement.textContent = chiffresNombre[index] || "";
+        caseElement.textContent = index >= premiereCaseChiffre
+            ? chiffresNombre[index - premiereCaseChiffre]
+            : "";
     });
 }
 

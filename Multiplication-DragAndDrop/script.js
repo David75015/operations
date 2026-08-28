@@ -25,10 +25,13 @@ function generateNumber(maxDigits) {
 
 function fillNumber(lineId, value) {
     const boxes = document.getElementById(lineId).querySelectorAll(".box");
-    const digits = value.slice(-boxes.length).padStart(boxes.length, "");
+    const digits = value.slice(-boxes.length);
+    const firstDigitBox = boxes.length - digits.length;
 
     boxes.forEach((box, index) => {
-        box.textContent = digits[index] || "";
+        box.textContent = index >= firstDigitBox
+            ? digits[index - firstDigitBox]
+            : "";
     });
 }
 
