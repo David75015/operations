@@ -202,13 +202,15 @@ body {
 
 .separator {
     width: 100%;
-    max-width: 420px;
+    max-width: 500px;
     height: 4px;
 
     background: #333;
 
     margin: 5px 0;
 }
+
+
 
 
 /* =========================

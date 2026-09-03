@@ -1,3 +1,11 @@
+document.querySelectorAll(".produit, .etape-2, .etape-3, .quotient").forEach(line => {
+    while (line.querySelectorAll(".case").length < 5) {
+        const caseElement = document.createElement("div");
+        caseElement.className = "case zone-depot";
+        line.appendChild(caseElement);
+    }
+});
+
 const chiffres = document.querySelectorAll(".chiffre");
 const zonesDepot = document.querySelectorAll(".zone-depot");
 const boutonVerifier = document.getElementById("boutonVerifier");
@@ -36,7 +44,7 @@ boutonInitialiser.addEventListener("click", () => {
     let diviseur = genererNombre(3);
     while (
         diviseur === "0" ||
-        Math.floor(Number(dividende) / Number(diviseur)) > 999
+        Math.floor(Number(dividende) / Number(diviseur)) > 99999
     ) {
         dividende = genererNombre(5);
         diviseur = genererNombre(3);

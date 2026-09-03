@@ -36,8 +36,15 @@ function fillNumber(lineId, value) {
 }
 
 initButton.addEventListener("click", () => {
-    fillNumber("firstNumber", generateNumber(5));
-    fillNumber("secondNumber", generateNumber(3));
+    let firstNumber = generateNumber(5);
+    let secondNumber = generateNumber(3);
+
+    if (Number(firstNumber) < Number(secondNumber)) {
+        [firstNumber, secondNumber] = [secondNumber, firstNumber];
+    }
+
+    fillNumber("firstNumber", firstNumber);
+    fillNumber("secondNumber", secondNumber);
     message.textContent = "";
     message.className = "";
 });
